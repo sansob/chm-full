@@ -1,21 +1,9 @@
-version: ‘3.9’
-services:
-   #Konfigurasi service webapp
-   webapp:
-      build:
-         #posisi Dockerfile berada di path yg sama
-         context: ./webapp
-         #file dockerfile yang digunakan
-         dockerfile: Dockerfile
-      #nama image hasil docker-compose build
-      image: nano/web_app:v1
-      #nama container dari image web yang dijalankan
-      container_name: “web_app”
-      #setting port yg bisa diakses dr host adalah 8000 
-      #port 80 adalah port service webapp yang hanya dikenali di 
-      #internal network antar container
-      ports:
-         - 9191:9191
-      #aturan jika container dalam status stop/exit maka akan 
-      #otomatis di restart oleh docker container ini. 
-      restart: always
+version: "3.3"
+ervices:
+  webapp:
+    image: webapp
+    build:
+      context: ./WebApp
+      dockerfile: Dockerfile
+    ports:
+      - "9191:9191"
