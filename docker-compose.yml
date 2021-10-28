@@ -5,7 +5,7 @@ services:
     build: ./.env
     environment:
      - TAG=latest
-    image: sansob/chm:${TAG}
+    image: sansob/chm:"${TAG:-latest}"
     container_name: chm
     hostname: sansob.chm
     # build:
