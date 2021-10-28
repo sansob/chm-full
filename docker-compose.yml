@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   chm.full:
-    image: sansob/chm:latest
+    image: sansob/chm:latest1
     container_name: chm
     hostname: sansob.chm
     # build:
