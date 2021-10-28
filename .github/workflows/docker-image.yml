@@ -50,4 +50,4 @@ jobs:
         name: Curl to Portainer
         uses: wei/curl@master
         with:
-          args: -k -O -X POST https://103.172.205.190:9443/api/stacks/webhooks/09ecc723-2547-421f-9d01-f231f628ae7d
+          args: -k -O -X POST https://103.172.205.190:9443/api/stacks/webhooks/d12ef919-cb2e-4417-b5c2-ed11a3013512
