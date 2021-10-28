@@ -2,6 +2,7 @@ version: "3.3"
 
 services:
   chm.full:
+    env_file: .env
     image: sansob/chm:${TAG}
     container_name: chm
     hostname: sansob.chm
