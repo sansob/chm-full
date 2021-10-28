@@ -1,9 +1,16 @@
-version: "2"
-ervices:
-  webapp:
-    image: webapp
+version: '3.7'
+
+services:
+  web:
+    container_name: 'aspnetcoreapp'
+    image: 'aspnetcoreapp'
     build:
-      context: ./WebApp
+      context: .
       dockerfile: Dockerfile
     ports:
-      - "9191:9191"
+     - "9191:9191"
+    networks:
+      - aspnetcoreapp-network
+networks:
+  aspnetcoreapp-network:
+    driver: bridge
