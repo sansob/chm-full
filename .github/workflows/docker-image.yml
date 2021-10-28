@@ -18,6 +18,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag chm:latest
+      run: docker build . --file Dockerfile --tag chm-latest
     - name: Push the docker to dockerhub
-      run: docker push sansob/chm:latest
+      run: docker push sansob/chm:chm-latest
