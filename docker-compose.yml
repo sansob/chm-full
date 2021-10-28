@@ -5,6 +5,6 @@ services:
     image: 'aspnetcoreapp'
     build:
       context: .
-      dockerfile: ./app/Dockerfile
+      dockerfile: app/Dockerfile
     ports:
      - "9191:9191"
