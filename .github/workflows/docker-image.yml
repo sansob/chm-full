@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ dev ]
 
+env:
+  IMAGE_NAME: image
+
 jobs:
 
   build:
@@ -15,4 +18,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag chm:$(date +%s)
+    - name: Push the docker to dockerhub
+      run: docker push sansob/chm:$(date +%s)
