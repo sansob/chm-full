@@ -2,7 +2,6 @@ version: "3.3"
 
 services:
   chm.full:
-    env_file: .env
     image: sansob/chm:${TAG}
     container_name: chm
     hostname: sansob.chm
@@ -10,5 +9,3 @@ services:
     #   context: ./curriculum_client
     ports:
       - "9191:9191"
-    environment:
-      - TAG="latest"
