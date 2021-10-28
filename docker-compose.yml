@@ -1,9 +1,13 @@
-version: '3.7'
+version: "3.3"
+
 services:
-  web:
-    container_name: 'aspnetcoreapp'
-    build:
-      context: .
-      dockerfile: 'Dockerfile'
+  chm.full:
+    image:sansob/chm:latest
+    container_name: chm
+    hostname: sansob.chm
+    # build:
+    #   context: ./curriculum_client
     ports:
-     - "9191:9191"
+      - "9191:9191"
+    environment:
+      "PUBLIC_PORT": "9191"

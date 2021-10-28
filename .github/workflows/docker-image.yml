@@ -46,3 +46,8 @@ jobs:
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+      - 
+      name: Curl to Portainer
+        uses: wei/curl@master
+        with:
+          args: https://103.172.205.190:9443/api/stacks/webhooks/b5a0159b-56c7-4809-98d2-6ba6ad25c11e
