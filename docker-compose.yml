@@ -2,9 +2,7 @@ version: "3.3"
 
 services:
   chm.full:
-    environment:
-      TAG="${TAG:-latest}"
-    image: "sansob/chm:${TAG}"
+    image: "sansob/chm:${TAG:-latest}"
     container_name: chm
     hostname: sansob.chm
     # build:
