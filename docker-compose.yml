@@ -11,4 +11,4 @@ services:
     ports:
       - "9191:9191"
     environment:
-      - TAG=${TAG}
+      - TAG="latest"
