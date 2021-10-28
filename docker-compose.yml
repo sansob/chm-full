@@ -9,8 +9,3 @@ services:
       dockerfile: Dockerfile
     ports:
      - "9191:9191"
-    networks:
-      - aspnetcoreapp-network
-networks:
-  aspnetcoreapp-network:
-    driver: bridge
