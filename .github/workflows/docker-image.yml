@@ -57,8 +57,30 @@ jobs:
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
-      - 
-        name: Curl to Portainer
-        uses: wei/curl@master
+      -
+        name: Pulling Docker Images
+        uses: appleboy/ssh-action@master
         with:
-          args: -k -O -X POST https://103.172.205.190:9443/api/stacks/webhooks/14faec87-8a9b-4727-a283-53bca10bdd40?tag=latest
+          host: ${{ secrets.HOST }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PORT: ${{ secrets.PORT }}
+          KEY: ${{ secrets.SSHKEY }}
+          script: docker pull sansob/chm:${{ steps.date.outputs.date }}
+      -
+        name: Stop Docker Service if exist
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PORT: ${{ secrets.PORT }}
+          KEY: ${{ secrets.SSHKEY }}
+          script: docker stop chm
+      -
+        name: Run Docker
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PORT: ${{ secrets.PORT }}
+          KEY: ${{ secrets.SSHKEY }}
+          script: docker run -p 8787:8787 sansob/chm:${{ steps.date.outputs.date }}
