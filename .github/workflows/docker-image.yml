@@ -20,4 +20,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: cd chm-full/ && sh deploy.sh
+          script: cd chm-full/ && git pull && docker build . -t auto-deploy-docker && docker-compose down && docker-compose up -d && echo "Deployed!"
