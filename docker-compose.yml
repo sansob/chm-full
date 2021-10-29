@@ -3,6 +3,7 @@ version: "3.7"
 services:
   chm.full:
     image: sansob/chm:latest
+    pull_policy: always
     restart: always
     container_name: chm
     hostname: sansob.chm
