@@ -75,4 +75,4 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           PORT: ${{ secrets.PORT }}
           PASSWORD: ${{ secrets.PASSWORD }}
-          script: docker run -d -p 9191:9191 --name chm_app sansob/chm:${{ steps.date.outputs.date }}
+          script: docker stop chm_app && docker run -d -p 9191:9191 --name chm_app sansob/chm:${{ steps.date.outputs.date }}
