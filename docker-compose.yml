@@ -1,9 +1,8 @@
-version: "3.3"
+version: "3.7"
 
 services:
   chm.full:
-    #image: "sansob/chm:${TAG:-latest}"
-    build: .
+    image: sansob/chm:${TAG:-latest}
     container_name: chm
     hostname: sansob.chm
     # build:
