@@ -65,7 +65,7 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           PORT: ${{ secrets.PORT }}
           PASSWORD: ${{ secrets.PASSWORD }}
-          script: docker login -u="${secrets.DOCKER_USERNAME}" -p="${secrets.DOCKER_PASSWORD}" && docker pull sansob/chm:${{ steps.date.outputs.date }}
+          script: docker pull sansob/chm:${{ steps.date.outputs.date }}
       -
         name: Stop Docker Service if exist
         uses: appleboy/ssh-action@master
@@ -83,4 +83,4 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           PORT: ${{ secrets.PORT }}
           PASSWORD: ${{ secrets.PASSWORD }}
-          script: docker login -u="${secrets.DOCKER_USERNAME}" -p="${secrets.DOCKER_PASSWORD}" && docker run -p 8787:8787 sansob/chm:${{ steps.date.outputs.date }}
+          script: docker run -p 8787:8787 sansob/chm:${{ steps.date.outputs.date }}
