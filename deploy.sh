@@ -3,6 +3,9 @@ echo "Deploying changes..."
 git checkout dev
 git pull
 
+echo "List Files"
+ls
+
 # Build the image with the new changes
 docker build . -t auto-deploy-docker
 
