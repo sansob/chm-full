@@ -1,7 +1,5 @@
 echo "Deploying changes..."
 # Pull changes from the live branch
-cd chm-full/
-git checkout dev
 git pull
 
 # Build the image with the new changes
