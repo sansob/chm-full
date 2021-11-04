@@ -67,7 +67,15 @@ jobs:
           PORT: ${{ secrets.PORT }}
           PASSWORD: ${{ secrets.PASSWORD }}
           script: docker pull ghcr.io/sansob/chm-full:${{ steps.date.outputs.date }}
-     
+      -
+        name: Stop Docker
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PORT: ${{ secrets.PORT }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          script: docker stop chm_app && docker rm chm_app
       -
         name: Run Docker
         uses: appleboy/ssh-action@master
@@ -76,7 +84,7 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           PORT: ${{ secrets.PORT }}
           PASSWORD: ${{ secrets.PASSWORD }}
-          script: docker run -d -p 9191:9191 --name chm_app --restart=always docker pull ghcr.io/sansob/chm-full:${{ steps.date.outputs.date }}
+          script: docker run -d -p 9191:9191 --name chm_app --restart=always ghcr.io/sansob/chm-full:${{ steps.date.outputs.date }}
       -
         name: Cleansing Images
         uses: appleboy/ssh-action@master
