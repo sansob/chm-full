@@ -75,7 +75,16 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           PORT: ${{ secrets.PORT }}
           PASSWORD: ${{ secrets.PASSWORD }}
-          script: docker ps -q --filter "name=chm_app" | grep -q . && docker stop chm_app && docker rm -fv chm_app
+          script: docker stop chm_app > /dev/null 2>&1 && echo 'stop container' || echo 'nothing to stop'
+      -
+        name: Remove Docker
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PORT: ${{ secrets.PORT }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          script: docker rm chm_app > /dev/null 2>&1 && echo 'remove container' || echo 'nothing to remove'  
       -
         name: Run Docker
         uses: appleboy/ssh-action@master
