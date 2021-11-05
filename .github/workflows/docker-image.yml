@@ -93,7 +93,7 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           PORT: ${{ secrets.PORT }}
           PASSWORD: ${{ secrets.PASSWORD }}
-          script: docker service create --publish 9191:9191 --name chm_app --restart=always ghcr.io/sansob/chm-full:${{ steps.date.outputs.date }}
+          script: docker service create --publish 9191:9191 --name chm_app ghcr.io/sansob/chm-full:${{ steps.date.outputs.date }}
       -
         name: Cleansing Images
         uses: appleboy/ssh-action@master
